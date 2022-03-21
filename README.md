@@ -1,4 +1,4 @@
-#pysyn, a lightweight easy-to-use yet intuitive networking library, built on top of plain-vanilla sockets.
+# pysyn, a lightweight easy-to-use yet intuitive networking library, built on top of plain-vanilla sockets.
 
 PySyn does most of the tedious hard labour for you and removes the pain out of socket programming. It supports TCP and UDP (**UDP WIP**).
 
