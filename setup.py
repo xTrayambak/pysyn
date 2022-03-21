@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="pydatanet",
-    version="0.0.1",
+    version="0.0.9",
     author="xTrayambak",
     author_email="xtrayambak@gmail.com",
     description="A fancy networking library which supports both the protocols (UDP support WIP); and makes it hard to shoot yourself in the foot.",
@@ -20,7 +20,7 @@ setuptools.setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    package_dir={"": "."},
-    packages=setuptools.find_packages(where="."),
+    package_dir={"": "src/"},
+    packages=setuptools.find_packages(where="src/"),
     python_requires=">=3.8",
 )

@@ -4,7 +4,7 @@ import threading
 from socket import AF_INET, SO_REUSEADDR, SOCK_STREAM, SOCK_DGRAM, SOL_SOCKET
 
 from pydatanet.server.client import Client
-from data import encode, decode
+from pydatanet.data import encode, decode
 
 class ServerType(enum.Enum):
     TCP = 0
