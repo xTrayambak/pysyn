@@ -27,6 +27,7 @@ class Server:
         self.serverType = serverType
 
         self.dataReceiveListeners = []
+        self.onJoinListeners = []
 
         if serverType == ServerType.TCP:
             print("* creating TCP socket")
@@ -93,6 +94,9 @@ class Server:
 
         return None
 
+    def on_join_hook(self, func):
+        self.onJoinListeners.append(func)
+
     def tcp_poll(self):
         """
         TCP socket polling method.
@@ -109,10 +113,14 @@ class Server:
 
         # Look out for new connections.
         conn, addr = self.socket.accept()
+        client = Client(addr[0], addr[1], conn)
         print(f"\t* new connection has been established [{addr[0]}:{addr[1]}]")
 
+        for func in self.onJoinListeners:
+            func(client)
+
         self.clients.append(
-            Client(addr[0], addr[1], conn)
+            client
         )
 
     def udp_poll(self):
