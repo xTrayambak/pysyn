@@ -2,7 +2,7 @@
 The server's view of what is a client; not the main client.
 """
 
-from data import encode, decode
+from pysyn.data import encode, decode
 
 class Client:
     def __init__(self, ip: str, port: int, conn):

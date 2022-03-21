@@ -1,4 +1,4 @@
-from server import Server, ServerType
+from pysyn.server import Server, ServerType
 
 def onPacketSend(sender, data):
     print(f"{sender.getIp()} sent me this!: {data}")
