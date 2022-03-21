@@ -1,4 +1,4 @@
-from pysyn.client import Client, ClientType
+from pydatanet.client import Client, ClientType
 
 def myFuncOnReceiveTCP(data_decoded):
     print(f"I got some data: {data_decoded}")

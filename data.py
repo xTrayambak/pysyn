@@ -2,7 +2,7 @@ from pickle import loads, dump, dumps
 
 def encode(object: any):
     if type(object) == str:
-        return dumps(object.encode('utf-8'))
+        return dumps(object)
     else:
         return dumps(object)
 

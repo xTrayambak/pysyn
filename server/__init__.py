@@ -3,7 +3,7 @@ import socket
 import threading
 from socket import AF_INET, SO_REUSEADDR, SOCK_STREAM, SOCK_DGRAM, SOL_SOCKET
 
-from pysyn.server.client import Client
+from pydatanet.server.client import Client
 from data import encode, decode
 
 class ServerType(enum.Enum):

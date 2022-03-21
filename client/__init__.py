@@ -7,7 +7,7 @@ import enum
 from socket import AF_INET, SO_REUSEADDR, SOCK_STREAM, SOCK_DGRAM, SOL_SOCKET
 import threading
 
-from pysyn.data import encode, decode
+from pydatanet.data import encode, decode
 
 BUFFER_SIZE = 2048
 

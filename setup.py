@@ -4,11 +4,11 @@ with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="pysyn",
+    name="pydatanet",
     version="0.0.1",
     author="xTrayambak",
     author_email="xtrayambak@gmail.com",
-    description="A small example package",
+    description="A fancy networking library which supports both the protocols (UDP support WIP); and makes it hard to shoot yourself in the foot.",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/xTrayambak/pysyn",
@@ -20,7 +20,7 @@ setuptools.setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    package_dir={"": ""},
-    packages=setuptools.find_packages(where=""),
+    package_dir={"": "."},
+    packages=setuptools.find_packages(where="."),
     python_requires=">=3.8",
 )
