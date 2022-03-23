@@ -3,7 +3,7 @@ from pydatanet.client import Client, ClientType
 def myFuncOnReceiveTCP(data_decoded):
     print(f"I got some data: {data_decoded}")
 
-c = Client(ClientType.TCP)
+c = Client(ClientType.UDP)
 c.hook_tcp_recv(myFuncOnReceiveTCP)
 c.connect("localhost", 5050)
 c.send(

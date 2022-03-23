@@ -67,8 +67,8 @@ class Server:
                 print(f"* socket is now listening at {self.host}:{self.port}")
 
             self.status = ServerStatus.INIT
-            print("* server is now in heartbeating mode.")
             self.heartbeat()
+            print("* server is now in heartbeating mode.")
 
     def _heartbeat(self):
         """
@@ -87,9 +87,9 @@ class Server:
         thr = threading.Thread(target = self._heartbeat, args=())
         thr.start()
 
-    def getFromIp(self, ip: str):
+    def getFromIp(self, ip: str, port: int):
         for client in self.clients:
-            if client.getIp() == ip:
+            if client.getIp() == ip and client.getPort() == port:
                 return client
 
         return None
@@ -124,7 +124,11 @@ class Server:
         )
 
     def udp_poll(self):
-        pass
+        data, sender = self.socket.recvfrom(BUFFER_SIZE)
+
+        print("* sender: {}".format(sender))
+
+        self.on_recv(self.getFromIp(sender), data)
     
     def stop(self):
         """

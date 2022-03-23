@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="pydatanet",
-    version="0.1.0",
+    version="0.1.1-rc5",
     author="xTrayambak",
     author_email="xtrayambak@gmail.com",
     description="A fancy networking library which supports both the protocols (UDP support WIP); and makes it hard to shoot yourself in the foot.",

@@ -26,6 +26,8 @@ class Client:
         self.onRecvTCP = []
         self.onRecvUDP = []
         self.status = ConnectStatus.DISCONNECTED
+        self.addr = ""
+        self.port = 0
 
         if clientType == ClientType.TCP:
             self.socket = socket.socket(AF_INET, SOCK_STREAM)
@@ -41,12 +43,18 @@ class Client:
                 (address, port)
             )
 
+        self.addr = address
+        self.port = port
+
         self.status = ConnectStatus.CONNECTED
         if autoPoll: self.heartbeat()
         print(f"\t* connected to [{address}:{port}]")
 
     def send(self, data: any):
-        self.socket.send(encode(data))
+        if self.clientType == ClientType.TCP:
+            self.socket.send(encode(data))
+        elif self.clientType == ClientType.UDP:
+            self.socket.sendto(encode(data), (self.addr, self.port))
 
     def heartbeat(self):
         threading.Thread(target=self._heartbeatLoop, args=()).start()
@@ -84,17 +92,8 @@ class Client:
             print("\t* we have been disconnected from the server.")
             self.status = ConnectStatus.DISCONNECTED
             return
+            
         data = decode(data)
-        print(data)
-
-        self.send(
-            {
-                "type": "authentication",
-                "data": {
-                    "token": 'eU2o302=E3-3ei3'
-                }
-            }
-        )
         
         for event in self.onRecvTCP:
             event(data)
