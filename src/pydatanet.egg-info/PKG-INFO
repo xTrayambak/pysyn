@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: pydatanet
-Version: 0.1.1rc5
+Version: 0.1.1rc9
 Summary: A fancy networking library which supports both the protocols (UDP support WIP); and makes it hard to shoot yourself in the foot.
 Home-page: https://github.com/xTrayambak/pysyn
 Author: xTrayambak

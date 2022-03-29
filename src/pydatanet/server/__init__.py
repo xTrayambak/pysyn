@@ -126,9 +126,7 @@ class Server:
     def udp_poll(self):
         data, sender = self.socket.recvfrom(BUFFER_SIZE)
 
-        print("* sender: {}".format(sender))
-
-        self.on_recv(self.getFromIp(sender), data)
+        self.on_recv(Client(sender[0], sender[1], None), data)
     
     def stop(self):
         """
